@@ -280,8 +280,11 @@
             this.$button = $(this.options.templates.button).addClass(this.options.buttonClass);
 
             // Adopt active state.
-            if (this.$select.prop('disabled') || this.$select.prop('readonly')) {
+            if (this.$select.prop('disabled')) {
                 this.disable();
+            }
+            else if (this.$select.prop('readonly')) {
+                this.$button.attr("disabled", "disabled");
             }
             else {
                 this.enable();
